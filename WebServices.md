@@ -363,3 +363,16 @@ Host kavramı **IP adresleriyle** doğrudan ilişkilidir:
 ## Sonuç
 
 Host kavramı, **ağ altyapısında temel bir yer tutar** ve **cihazların fonksiyonlarını, adreslenebilirliğini ve iletişimini belirler**. **İnternet ve yerel ağlar** üzerindeki tüm cihazlar **host** olarak tanımlanabilir ve **istemci, sunucu, sanal veya fiziksel host gibi çeşitli roller üstlenebilir**. Günümüzde, **dağıtık host sistemleri ve bulut çözümleri** yaygınlaşarak merkezi host sistemlerine göre daha esnek ve ölçeklenebilir çözümler sunmaktadır.
+
+---
+
+## Kaynaklar
+
+1. [Client-Server Model - Wikipedia](https://en.wikipedia.org/wiki/Client%E2%80%93server_model#:~:text=The%20client%E2%80%93server%20model%20is%20a,therefore%2C%20initiate%20communication%20sessions%20with)
+2. [What is Client-Server Network? - Zenarmor](https://www.zenarmor.com/docs/network-basics/what-is-client-server-network#:~:text=The%20client,clients%20at%20the%20same%20time)
+3. [Host (Network) - Wikipedia](https://en.wikipedia.org/wiki/Host_(network)#:~:text=Network%20hosts%20that%20participate%20in,resources%20in%20an%20equipotent%20manner)
+4. [Definition of Host - TechTarget](https://www.techtarget.com/searchnetworking/definition/host#:~:text=A%20host%20is%20a%20computer,receive%20data%2C%20services%20and%20applications)
+5. [Web Services - Wikipedia](https://en.wikipedia.org/wiki/Web_service#:~:text=A%20web%20service%20,either)
+6. [Stateful vs Stateless - Red Hat](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless#:~:text=A%20stateless%20application%20or%20process,term%20requests)
+7. [SOAP vs REST - AWS](https://aws.amazon.com/compare/the-difference-between-soap-rest/#:~:text=SOAP%20is%20an%20older%20technology,also%20called%20RESTful%20web%20services)
+8. [SOAP vs REST - Stackify](https://stackify.com/soap-vs-rest/#:~:text=middleware%20such%20as%20ICE%20and,security%2C%20trust%2C%20and%20other%20elements)
