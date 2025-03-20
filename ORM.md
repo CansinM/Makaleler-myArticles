@@ -335,4 +335,44 @@ ORM, OAuth veya OpenID Connect’in kimlik doğrulama sürecinde doğrudan yer a
 
 ORM, bu süreçlerde kullanıcı bilgilerini saklamak, yetkilendirme verilerini yönetmek ve kimlik doğrulama sürecini desteklemek için kullanılır. OAuth veya OpenID Connect entegrasyonu ile kullanıcı kimlik doğrulama ve yetkilendirme işlemleri kolaylaşır, güvenli hale gelir ve veri yönetimi daha verimli olur.
 
+---
+
+## Kaynaklar
+
+### Nesne-İlişkisel Eşleme (Object-Relational Mapping - ORM)
+- [Nesne-İlişkisel Eşleme (ORM) - Wikipedia (TR)](https://tr.wikipedia.org/wiki/Nesne-%C4%B0li%C5%9Fkisel_E%C5%9Fleme#:~:text=%C4%B0ngilizce%20%3A%C2%A0O%2FRM%20veya%20%2068%3A%C2%A0ORM,geli%C5%9Ftirilmesine%20olanak%20sa%C4%9Flayan%20programlama%20teknolojisidir)
+- [Nesne-İlişkisel Eşleme (ORM) - Wikipedia (EN)](https://en.wikipedia.org/wiki/Object-relational_mapping#:~:text=Compared%20to%20traditional%20techniques%20of,2)
+- [ORM Dezavantajları - Wikipedia (EN)](https://en.wikipedia.org/wiki/Object-relational_mapping#:~:text=Disadvantages%20of%20ORM%20tools%20generally,happening%20in%20the%20implementation%20code)
+- [ORM ve SQL İlişkisi - Wikipedia (EN)](https://en.wikipedia.org/wiki/Object-relational_mapping#:~:text=SQL%20statements,4)
+
+### Laravel ORM
+- [Laravel Migration Dökümantasyonu](https://laravel.com/docs/10.x/migrations#:~:text=Migrations%20are%20like%20version%20control,problem%20that%20database%20migrations%20solve)
+- [Laravel Eloquent ORM Rehberi](https://datatas.com/laravel-eloquent-orm-a-comprehensive-guide/#:~:text=What%20is%20Eloquent%20ORM%3F)
+- [Laravel Eloquent ORM Dökümantasyonu](https://laravel.com/docs/10.x/eloquent#:~:text=1%24flights%20%3D%20Flight%3A%3Awhere)
+
+### Active Record Pattern
+- [Active Record Pattern Nedir?](https://karoldabrowski.com/blog/active-record-pattern-or-anti-pattern-overview/#:~:text=In%20the%20Active%20Record%20pattern%2C,simplified%20diagram%20of%20a%20model)
+- [Active Record Pattern Uygulama Yöntemleri](https://karoldabrowski.com/blog/active-record-pattern-or-anti-pattern-overview/#:~:text=,implementation)
+
+### Django ORM
+- [Django ORM Sorgular](https://docs.djangoproject.com/en/4.1/topics/db/queries/#:~:text=Entry)
+
+### Entity Framework ve Veri Mapper
+- [EF Core ve Data Mapper/Active Record Kullanımı](https://stackoverflow.com/questions/75247614/is-ef-core-an-implementation-of-the-data-mapper-or-active-record-patterns#:~:text=I%20would%20argue%20that%20two,be%20considered%20as%20Data%20Mapper)
+- [Dapper ORM Nedir?](https://visualstudiomagazine.com/articles/2018/03/19/dapper-orm.aspx#:~:text=What%20is%20Dapper%3F%20Dapper%20describes,first)
+
+### CQRS (Command Query Responsibility Segregation)
+- [CQRS ve EF Veri Modelleri](https://learn.microsoft.com/en-us/archive/msdn-magazine/2016/november/data-points-cqrs-and-ef-data-models#:~:text=Image%3A%20Julie%20LermanCommand%20Query%20Responsibility,the%20idea%20of%20creating%20entirely)
+- [CQRS Nedir?](https://systemdesignschool.io/blog/cqrs-pattern#:~:text=Command%20Query%20Responsibility%20Segregation%2C%20or,scalability%2C%20complexity%20management%2C%20and%20performance)
+
+### Kimlik Doğrulama ve Yetkilendirme (Authentication vs Authorization)
+- [Microsoft Entra Kimlik Doğrulama ve Yetkilendirme](https://learn.microsoft.com/tr-tr/entra/identity-platform/authentication-vs-authorization#:~:text=Kimlik%20do%C4%9Frulamas%C4%B1%20%2C%20dedi%C4%9Finiz%20ki%C5%9Fi,i%C3%A7in%20OpenID%20Connect%20protokolunu%20kullan%C4%B1r)
+- [Auth0 Kimlik Doğrulama ve Yetkilendirme](https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization#:~:text=In%20simple%20terms%2C%20authentication%20is,what%20they%20have%20access%20to)
+
+### OAuth ve OpenID Connect
+- [OAuth Nedir? - Wikipedia](https://tr.wikipedia.org/wiki/OAuth#:~:text=OAuth%20a%C3%A7%C4%B1k%20standartl%C4%B1%C2%A0bir%20yetkilendirme%20protokol%C3%BCd%C3%BCr%2C,HTTP%29%20ile)
+- [OAuth Nedir? - Bilişim Evreni](https://bilisimevreni.com.tr/oauth-nedir/#:~:text=OAuth%2C%20kimlik%20do%C4%9Frulama%20i%C5%9Flemi%20de%C4%9Fildir%2C,belirli%20kaynaklara%20eri%C5%9Fmesine%20izin%20verir)
+- [OAuth2 ve OpenID Connect Farkları](https://toxigon.com/oauth2-vs-openid-connect-whats-the-difference#:~:text=Now%2C%20let%27s%20talk%20about%20OpenID,who%20you%20say%20you%20are)
+- [OAuth ve OpenID Bütünleşik Kullanımı](https://tr.wikipedia.org/wiki/OAuth#:~:text=OAuth%2C%20OpenID%20%C2%A0ile%20b%C3%BCt%C3%BCnle%C5%9Fik%20ama,direkt%20olarak%20%2079%20ba%C4%9Fl%C4%B1d%C4%B1r)
+
 
