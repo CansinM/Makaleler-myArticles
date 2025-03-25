@@ -478,3 +478,216 @@ Günümüzde sayısız alanda kullanılırlar:
 
 ---
 
+# 5. XML (Extensible Markup Language)
+
+**XML (Extensible Markup Language)**, verilerin **hiyerarşik ve anlamlı** bir biçimde temsil edilmesini sağlayan, **metin tabanlı bir işaretleme dilidir.**  
+İlk olarak **SGML (Standard Generalized Markup Language)** yapısına dayandırılmış ve onun bir alt kümesi olarak geliştirilmiştir.
+
+XML’in temel amacı, farklı sistemler arasında **platform bağımsız veri paylaşımını** mümkün kılmaktır.
+
+---
+
+## XML’in Temel Özellikleri
+
+- **İnsan ve makine tarafından okunabilir** bir formattır.  
+- Verileri **etiketler (tags)** ile yapılandırır.  
+- **Kendi kendini tanımlayan** bir formattır; yani veri, anlamını taşıyan etiketiyle birlikte sunulur.  
+- **DOM (Document Object Model)** sayesinde XML belgeleri programlama dilleriyle işlenebilir.  
+- Belgeler **kontrollü ve kurallı** bir yapıya sahiptir.
+
+---
+
+## XML Yapısal Özellikleri
+
+XML belgeleri, her zaman bir **kök (root) eleman** ile başlar ve iç içe geçmiş yapılarla (parent-child ilişkisi) **veri hiyerarşisi** oluşturulur.
+
+#### XML Örnek Yapısı
+
+Aşağıda, XML belgelerinde sıkça karşılaşılan iç içe geçmiş (nested) yapıların nasıl tanımlandığını gösteren bir örnek bulunmaktadır:
+
+```xml
+<root>
+    <child1>
+        <subelement1>Content 1</subelement1>
+        <subelement2>Content 2</subelement2>
+    </child1>
+    <child1>
+        <subelement3>Content 3</subelement3>
+        <subelement4>Content 4</subelement4>
+    </child1>
+    <!-- Comment (Yorum satırı) -->
+</root>
+```
+
+---
+
+## XML’de Özel Karakterler
+
+XML'de bazı karakterler doğrudan kullanılamaz çünkü belge yapısını bozabilir. Bu karakterler, özel kaçış dizileri ile temsil edilir:
+
+| Karakter | XML Temsili  |
+|----------|--------------|
+| `<`      | `&lt;`       |
+| `>`      | `&gt;`       |
+| `&`      | `&amp;`      |
+| `'`      | `&apos;`     |
+| `"`      | `&quot;`     |
+
+Bu özel karakterler, XML yapısının bozulmaması için **kaçış karakterleri** ile temsil edilir.
+
+---
+
+## Well-Formed ve Valid XML
+
+- Bir XML belgesi **yapısal kurallara** uygunsa (örneğin tüm etiketler doğru kapanmışsa), bu belge **well-formed** olarak adlandırılır.
+- Ek olarak belirli **kurallara veya şemalara** (DTD veya XSD) göre doğrulanabiliyorsa, belge **valid** kabul edilir.
+
+---
+
+## XML Veri Türleri
+
+XML’in yapısı metin tabanlı olsa da, içerisinde tutulan veriler farklı veri türlerini temsil edebilir:
+
+- Sayılar (`integer`, `decimal`)
+- Metin (`string`, `character`)
+- Tarih ve saat
+- Boolean (`true` / `false`)
+
+> Bu veri türleri genellikle **XSD şemaları** ile tanımlanır.
+
+---
+
+## Örnek XML Belgesi
+
+```xml
+<kitap>
+    <baslik>Yapay Zeka</baslik>
+    <yazar>İbrahim Yılmaz</yazar>
+    <yayinevi>Bilim Yayınları</yayinevi>
+    <fiyat>75.90</fiyat>
+</kitap>
+````
+---
+
+## Doküman Tipi Tanımlama (DTD)
+
+**DTD (Document Type Definition)**, XML belgelerinin yapısını tanımlamak için kullanılan ilk standartlardan biridir.  
+DTD ile şunlar tanımlanabilir:
+
+- Hangi etiketlerin kullanılabileceği  
+- Etiketlerin birbirleriyle olan ilişkileri  
+- Öznitelikler (attributes) ve veri tipleri
+
+> DTD sayesinde XML belgeleri **yapısal olarak kontrol edilebilir** ve **doğrulanabilir** hale gelir.
+
+Tanımlar şu iki biçimde yer alabilir:
+
+- **Internal DTD** → XML dosyasının içerisinde tanımlanır.  
+- **External DTD** → Harici bir `.dtd` dosyası olarak tanımlanır ve XML dosyasına referans verilir.
+
+### DTD’de Tanımlanabilecek Yapılar:
+
+| Yapı          | Açıklama                          |
+|---------------|-----------------------------------|
+| `<!ELEMENT>`  | Element tanımlamaları             |
+| `<!ATTLIST>`  | Öznitelik (attribute) tanımlamaları |
+| `<!ENTITY>`   | Varlık (entity) tanımlamaları     |
+| `<!NOTATION>` | Notasyon tanımlamaları            |
+
+---
+
+## XML Schema Definition (XSD)
+
+**XSD**, XML belgelerinin yapısını ve içeriklerini daha ayrıntılı tanımlamak için kullanılan modern bir şemalandırma sistemidir.  
+**W3C (World Wide Web Consortium)** tarafından geliştirilmiştir.
+
+> XSD, DTD’ye göre **daha güçlü**, **esnek** ve **veri türlerini detaylı tanımlama** yeteneğine sahiptir.
+
+### XSD ile Tanımlanabilen Yapılar:
+
+- Element isimleri ve veri tipleri  
+- Gerekli veya opsiyonel alanlar  
+- Öznitelik tanımlamaları  
+- İç içe geçmiş yapılar  
+- Sayısal aralıklar, karakter uzunlukları  
+- Düzenli ifade (regex) ile özel kısıtlamalar
+
+> XSD tanımı da XML dosyası içinde veya ayrı bir `.xsd` dosyasında yapılabilir.
+
+---
+
+## XML Kullanım Alanları
+
+XML, birçok platform, uygulama ve sektörde yaygın olarak kullanılmaktadır:
+
+- **API sistemleri** (özellikle **SOAP tabanlı** sistemler)  
+- **E-ticaret platformları** (ürün verisi güncellemeleri, varyantlar)  
+- **Pazar yeri entegrasyonları** (örneğin: XML feed dosyaları)  
+- **Sitemap dosyaları** (arama motoru optimizasyonu - SEO)  
+- **Ofis dosyaları** (Office Open XML: `.docx`, `.xlsx`)  
+- **RSS beslemeleri** (haber siteleri, bloglar vb.)  
+- **Veri paylaşım sistemleri** (döviz kurları, hava durumu, namaz vakitleri)  
+- **Veri tabanı entegrasyonları**  
+- **Bankacılık ve finans sistemleri**  
+- **Web sunucu konfigürasyonları** (Apache, Nginx, IIS)  
+- **Mail sunucuları** (Postfix, Microsoft Exchange yapılandırmaları)  
+- **Android Studio** (layout ve kaynak dosyaları XML tabanlıdır)
+
+---
+
+# 6. JSON (JavaScript Object Notation)
+
+**JSON (JavaScript Object Notation)**, veri saklama ve veri alışverişi amacıyla kullanılan, hafif, okunabilir ve platform bağımsız bir veri formatıdır.  
+Başlangıçta JavaScript tabanlı olarak geliştirilmiş olsa da, günümüzde neredeyse tüm programlama dilleri tarafından desteklenmektedir.
+
+> JSON formatı, verileri **anahtar-değer çiftleri** ve **sıralı veri listeleri** şeklinde organize eder.
+
+---
+
+## JSON’un Temel Özellikleri
+
+- Basit ve **insan tarafından okunabilir** bir yapıya sahiptir.  
+- **Anahtar-değer (key-value)** çiftleriyle çalışır.  
+- **Nesne (Object)** ve **dizi (Array)** yapısını destekler.  
+- **UTF-8 karakter kodlamasını** kullanır.  
+- Web tabanlı sistemler için **oldukça uygundur**.
+
+---
+
+## JSON Yapısal Özellikleri
+
+JSON yapısı iki temel bileşenden oluşur:
+
+### 1. Anahtar-Değer Çifti (Key-Value Pair)
+
+``
+"sehir": "İstanbul"
+``
+``
+"plaka": 34
+``
+### 2. Sıralı Değer Listesi (Array):
+``
+"renkler": ["kırmızı", "beyaz", “siyah"]
+``
+
+---
+
+### JSON Nesne ve Dizi Tanımı
+
+- **JSON nesnesi** süslü parantez `{}` ile tanımlanır.  
+- Anahtar-değer çiftleri arasında **virgül (`,`)** kullanılır.  
+- **Dizi (Array)** ise köşeli parantez `[]` ile belirtilir.
+
+### Örnek JSON Yapısı
+
+Örnek JSON Yapısı:
+
+```json
+{
+  "ad": "Murat",
+  "no": 196,
+  "hobiler": ["Okumak", "Yüzmek", "Gezmek"]
+}
+`````
+
