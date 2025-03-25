@@ -689,5 +689,186 @@ JSON yapısı iki temel bileşenden oluşur:
   "no": 196,
   "hobiler": ["Okumak", "Yüzmek", "Gezmek"]
 }
+```
+
+## Kurallar
+
+- Anahtar isimleri mutlaka çift tırnak (`""`) içinde olmalıdır.
+- Aynı nesne içinde aynı anahtar ismi birden fazla kez kullanılmamalıdır.
+- JSON yapısı içindeki veriler farklı türlerde olabilir:
+
+  ```json
+  "futbolcu": ["Ali", 29, 1.88]
+  ````
+- Boş nesne: `{}`
+- Boş dizi: `[]`
+
+---
+
+## JSON Kaçış Karakterleri (Escape Characters)
+
+Bazı karakterler JSON içinde doğrudan kullanılamaz. Bu karakterler kaçış karakterleriyle temsil edilir:
+
+| Karakter          | Kaçış Şekli |
+|-------------------|--------------|
+| "                 | \"           |
+| \                 | \\           |
+| /                 | \/           |
+| Backspace         | \b           |
+| New line          | \n           |
+| Carriage Return   | \r           |
+| Tab               | \t           |
+
+---
+
+## JSON Veri Türleri
+JSON, aşağıdaki temel veri türlerini destekler:
+
+- String (Metin): `"merhaba"`
+- Number (Sayı): `42, 3.14`
+- Boolean (Mantıksal): `true, false`
+- Array (Dizi): `["elma", "armut", "muz"]`
+- Object (Nesne): `{"ad": "Ali", "yas": 30}`
+- null: `null`
+
+---
+
+## JSON Dosyası Oluşturma
+JSON dosyaları genellikle .json uzantısıyla kaydedilir. Metin tabanlı olduğu için basit bir metin düzenleyiciyle oluşturulabilir. Ancak yapı hatalarına karşı bazı özel JSON editörleri veya IDE eklentileri kullanılabilir.
+
+### Örnek: ogrenci.json
+```json
+{
+    "isim": "Ayşe",
+    "numara": 105,
+    "bolum": "Bilgisayar Mühendisliği",
+    "notlar": [90, 85, 78],
+    "mezun": false
+}
+````
+
+---
+
+## JSON Kullanım Alanları
+JSON, veri taşımak, saklamak ve yapılandırmak için pek çok alanda yaygın olarak kullanılmaktadır:
+
+- API sistemleri: 
+  - RESTful ve GraphQL API’lerde veri formatı olarak
+- E-Ticaret: 
+  - Ürün, kategori, sipariş bilgileri
+- Pazar yeri entegrasyonları: 
+  - Ürün akışları ve eşleşmeler
+- Veri paylaşımı: 
+  - Döviz kurları, hava durumu, film ve müzik verileri
+- Veritabanı sistemleri: 
+  - NoSQL veritabanlarında (MongoDB gibi)
+- Finans sistemleri: 
+  - İşlem ve kullanıcı kayıtları
+- Konfigürasyon dosyaları: 
+  - Web uygulamaları, framework ayarları
+- IoT cihazları: 
+  - Sensör verisi aktarımı, cihaz yönetimi
+
+---
+
+# 7. YAML (YAML Ain’t Markup Language)
+YAML, okunabilirliği ön planda tutan, basit ve sade bir veri formatıdır. Adından da anlaşılacağı üzere, bir işaretleme dili değil, veri yapılarını sade bir biçimde ifade etmeye yarayan metin temelli bir formattır. Hiyerarşik veri yapılarının tanımlanmasında son derece kullanışlıdır.
+YAML, özellikle yapılandırma dosyalarında ve konfigürasyon tanımlarında tercih edilen, esnek ve genişletilebilir bir sistem sunar.
+
+## YAML’in Temel Özellikleri
+- İnsan tarafından kolayca okunabilir.
+- Hiyerarşik veri yapıları desteklenir.
+- String, sayı, liste gibi farklı veri türlerini ifade edebilir.
+- JSON ve XML’e alternatif olarak daha sade bir söz dizimine sahiptir.
+- Girintilere dayalı yapısı sayesinde veri ilişkileri açık biçimde gösterilir.
+
+## YAML Yapısal Özellikleri
+- YAML’de yapılar girintiler yardımıyla oluşturulur. Alt-üst ilişki (hiyerarşi) girintilerle sağlanır.
+- Genellikle 2 boşluk kullanılır.
+- Boşluk kullanımı çok önemlidir. Hatalı girinti yapıları geçersiz dosyalara neden olabilir.
+- String ifadeler için tırnak işareti zorunlu değildir, ancak özel karakterler içeriyorsa kullanılabilir.
+
+**Örnekler:**
+```yaml
+ders: Kimya
+ders: "Kimya"
+ders: 'Bilişim Teknolojilerine Giriş'
+
+no: 176
 `````
 
+**Liste (dizi) yapısı:**
+```yaml
+renkler:
+  - Kırmızı
+  - Beyaz
+  - Siyah
+`````
+
+>YAML’de yorumlar # karakteri ile başlar
+
+---
+
+## YAML Veri Türleri
+YAML şu temel veri türlerini destekler:
+
+- Skaler (Scalar): Tekil veriler (string, sayı, boolean)
+- Liste (Sequence): Sıralı veri dizileri (dizi)
+- Anahtar-Değer Çifti (Mapping): Nesne benzeri yapılar (dictionary)
+
+## YAML Dosyası Oluşturma
+YAML dosyaları genellikle .yaml veya .yml uzantısı ile kaydedilir. Düz metin editörleriyle veya özel YAML editörleriyle oluşturulabilir. JSON’a göre daha sade ve okunaklı bir yapıya sahiptir.
+
+### Örnek YAML Dosyası:
+```yaml
+kisi:
+  ad: Zeynep
+  yas: 28
+  hobiler:
+    - Müzik
+    - Resim
+    - Kamp
+  universite:
+    ad: İstanbul Teknik Üniversitesi
+    bolum: Bilgisayar Mühendisliği
+`````
+
+---
+
+## YAML Kullanım Alanları
+YAML özellikle konfigürasyon dosyaları ve devops uygulamaları için yaygın olarak kullanılır:
+- Yapılandırma uygulamaları:
+  - Django (settings yapılandırmaları)
+  - Jenkins (CI/CD konfigürasyonları)
+  - Ansible (otomasyon senaryoları)
+- Veri depolama ve aktarımı
+- Docker Compose:
+  - Ortam değişkenleri
+  - Konteyner tanımlamaları
+- Kubernetes:
+  - Pod tanımları
+  - Service ve Deployment tanımları
+  
+---
+
+## JSON, XML ve YAML Karşılaştırması
+
+| **Özellik**             | **JSON**                   | **XML**                    | **YAML**                    |
+|----------------------|------------------------|------------------------|-------------------------|
+| Okunabilirlik        | Orta                   | Düşük                  | Yüksek                  |
+| Veri Yapısı          | Anahtar-Değer, Dizi    | Etiket yapısı          | Girinti ile hiyerarşi   |
+| Dosya Boyutu         | Küçük                  | Büyük                  | Küçük                   |
+| İnsan Okunabilirliği | Kısmen                 | Az                     | Yüksek                  |
+| Destek               | Yaygın                 | Çok yaygın             | Özellikle DevOps'ta yaygın |
+| Öğrenme Eğrisi       | Düşük                  | Yüksek                 | Düşük                   |
+
+---
+
+## Kaynakça
+
+1. [BTK Akademi - Doküman Tipleri ve Veri Formatları](https://www.btkakademi.gov.tr/portal/course/dokuman-tipleri-ve-veri-formatlari-27901)
+2. [Sayı Sistemleri Görseli](https://miro.medium.com/v2/resize:fit:772/1*z3FENZfyAEoC_133kTra3w.jpeg)
+3. [ASCII Tablosu Görseli](https://media.geeksforgeeks.org/wp-content/uploads/20240304094301/ASCII-Table.png)
+4. [Veri Formatları Karşılaştırması Görseli](https://i.sstatic.net/6C0C6.png)
+5. [Serileştirme Görseli](https://upload.wikimedia.org/wikipedia/commons/f/f4/Serialization.jpg)
+6. [API Genel Bakış](https://media.licdn.com/dms/image/v2/D5612AQF5552tf_aopg/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1683632736875?e=2147483647&v=beta&t=svq3KPWaPWsorSEVmES9ytHbF38bN9kPkvDuSYjNAG8)
