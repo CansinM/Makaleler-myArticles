@@ -156,6 +156,17 @@ Bu sorunu çözmek amacıyla **Unicode standardı** geliştirilmiştir.
 - `00` : Düzlem numarası  
 - `00C7` : Kod noktası
 
+| Düzlem Numarası | Onaltılık Aralık | Resmi Adı                                        | Kısa Açıklama                                                              |
+|-----------------|-----------------|--------------------------------------------------|----------------------------------------------------------------------------|
+| 0               | U+0000 - U+FFFF | Temel Çok Dilli Düzlem (Basic Multilingual Plane - BMP) | En sık kullanılan karakterler, modern dillerin çoğu.                        |
+| 1               | U+10000 - U+1FFFF| Ek Çok Dilli Düzlem (Supplementary Multilingual Plane - SMP) | Tarihi yazı sistemleri, müzik ve matematik sembolleri, emoji.               |
+| 2               | U+20000 - U+2FFFF| Ek İdeografik Düzlem (Supplementary Ideographic Plane - SIP) | Nadir kullanılan Çince, Japonca ve Korece ideografları.                    |
+| 3               | U+30000 - U+3FFFF| Üçüncül İdeografik Düzlem (Tertiary Ideographic Plane - TIP) | Daha da nadir kullanılan Çince, Japonca ve Korece ideografları.             |
+| 4-13            | U+40000 - U+DFFFF| Atanmamış (Unassigned)                             | Gelecekteki karakterler için ayrılmış.                                    |
+| 14              | U+E0000 - U+EFFFF| Ek Özel Amaçlı Düzlem (Supplementary Special-purpose Plane - SSP) | Dil etiketleri, varyasyon seçiciler gibi özel amaçlı karakterler.         |
+| 15              | U+F0000 - U+FFFFF| Ek Özel Kullanım Alanı - A (Supplementary Private Use Area - A) | Kullanıcı tanımlı karakterler için ayrılmış.                               |
+| 16              | U+100000 - U+10FFFF| Ek Özel Kullanım Alanı - B (Supplementary Private Use Area - B) | Kullanıcı tanımlı karakterler için ayrılmış.                               |
+
 ---
 
 ## Unicode Konsorsiyumu
@@ -195,7 +206,20 @@ Bu biçimlere **UTF (Unicode Transformation Format)** denir.
 - **ASCII ile geriye uyumludur** ve **gereksiz bellek kullanımını azaltır**.  
 - Web, e-posta, API veri formatlarında **yaygın olarak kullanılır**.
 
-![Unicode vs UTF](https://i.sstatic.net/6C0C6.png)
+| Karakter Sistemi | UTF-32                 | UTF-16             | UTF-8        |
+|------------------|------------------------|--------------------|--------------|
+| Uzunluk          | 4 Byte (32 Bit)        | 2 veya 4 Byte (16 veya 32 Bit) | 1-4 Byte (8-32 Bit) |
+| S                | `00000000 00000000` <br> `00000000 01010011` | `00000000 01010011` | `01010011`   |
+| Hello            | 20 Byte (160 Bit)      | 10 Byte (80 Bit)   | 5 Byte (40 Bit) |
+| ©                | `00000000 00000000` <br> `00000000 10101001` | `00000000 10101001` | `11000010 10101001` |
+| 😎               | `00000000 00000001` <br> `11110110 00001110` | `11011000 00111101` <br> `11011110 00001110` | `11110000 10011111` <br> `10011000 10001110` |
+
+| UNICODE                                                  | UTF-32, UTF-16 ve UTF-8                                                               |
+|----------------------------------------------------------|---------------------------------------------------------------------------------------|
+| Standarttır                                              | Unicode standardının uygulanış biçimleridir                                           |
+| Karakter ve sembolleri temsil eden bir karakter kodlama standardıdır | Unicode standardını uygulayan karakter kodlama sistemleridir                               |
+| Her karakter benzersiz sayılarla (code point) ifade edilir <br> Örneğin: U+0042, U+005A, U+1F353 gibi | Farklı uzunluktaki byte bloklarıyla karakterler temsil edilir. <br> Örneğin: 01000001, 00000000 01000101 gibi |
+| Tüm dillere ait karakter ve sembolleri bir arada toplayan bir standarttır. | Unicode standardındaki karakterleri bilişim sistemlerinde depolamak ve iletmek için oluşturulmuş sistemlerdir. |
 
 ---
 
