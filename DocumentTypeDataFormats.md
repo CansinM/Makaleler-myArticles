@@ -298,22 +298,34 @@ Sistemler arasında veri alışverişi yapılmasını sağlar ve organize, taş�
 
 ## Veri Serileştirme (Serialization)
 
-Veri serileştirme, bir nesnenin ya da veri yapısının **byte dizisine dönüştürülmesi** sürecidir.  
-Bu işlemle veriler disk üzerinde saklanabilir veya ağ üzerinden başka sistemlere iletilebilir.
+Veri serileştirme, bir nesnenin veya veri yapısının diskte saklanabilir ya da ağ üzerinden iletilebilir bir forma dönüştürülmesi işlemidir. Bu işlem, verinin byte dizisine (byte stream) çevrilmesiyle gerçekleşir. Tam tersi işlem ise deserialization olarak adlandırılır; yani byte akışından tekrar orijinal veri yapısına dönüş sağlanır.
 
-**Serileştirme Süreci:**
+### Serileştirme Süreci
 
-- Nesne/Veri → Byte akışı (serialization)  
-- Byte akışı → Nesne/Veri (deserialization)
+1.  **Veri yapısının seçilmesi**
 
-**Kullanım Alanları:**
+    Örneğin: Nesne, liste, sözlük, dizi gibi yapılar.
+2.  **Uygun formatın belirlenmesi**
 
-- Veritabanına veri kaydetme  
-- Dosyaya yazma  
-- Web servisleri ile veri alışverişi  
-- API iletişimi  
+    Kullanılabilecek formatlar: JSON, XML, YAML, BSON, vb.
+3.  **Serialize işlemi (Nesne → Byte dizisi)**
 
-**Kullanılan formatlar:** JSON, XML, YAML, BSON
+    Veri, düz bir metin veya ikili formata dönüştürülür.
+4.  **Verinin iletimi veya saklanması**
+    * Ağ üzerinden (API ile)
+    * Dosya sistemine kayıt
+    * Veritabanına yazım
+5.  **Deserialize işlemi (Byte dizisi → Nesne)**
+
+    Veriler, tekrar orijinal yapısına dönüştürülür.
+
+### Kullanım Alanları
+
+* Web servisleri (API) ile veri alışverişi
+* Veritabanına kayıt
+* Dosya sistemi üzerinde veri saklama
+* Veri önbellekleme (cache)
+* Farklı sistemler arasında veri iletimi
 
 ![VeriSerialiation](https://upload.wikimedia.org/wikipedia/commons/f/f4/Serialization.jpg)
 
@@ -367,47 +379,82 @@ Web sayfalarının yapısını tanımlayan işaretleme dilidir.
 
 ## Markdown
 
-- Metin belgelerini biçimlendirmek amacıyla geliştirilmiş **hafif bir işaretleme dili**dir.  
-- HTML ve PDF gibi biçimlere kolayca dönüştürülebilir.  
-- Biçimlendirme için `#`, `*`, `-`, `[ ]`, `![]()` gibi işaretler kullanılır.
+Markdown, düz metinle yazılmış içerikleri kolayca biçimlendirmeye yarayan hafif bir işaretleme dilidir.
 
+### Özellikleri
+
+- Okunabilirlik yüksektir.
+- HTML ve PDF'e dönüştürülebilir.
+- Belgeler, README dosyaları, blog içerikleri için idealdir.
+
+### Örnek
+
+```markdown
+# Başlık 1
+## Başlık 2
+**Kalın yazı**
+*İtalik yazı*
+- Madde 1
+- Madde 2
+```
 ---
 
 ## SQL (Structured Query Language)
 
-- İlişkisel veritabanlarında kullanılan **standart sorgu dilidir**.  
-- Veri oluşturma, okuma, güncelleme ve silme (CRUD) işlemleri yapılabilir.
+SQL, ilişkisel veritabanlarında veri oluşturmak, sorgulamak ve yönetmek için kullanılan standart sorgu dilidir.
 
-**SQL Dosyaları:**
+### Temel Komutlar:
 
-- `.sql` uzantısıyla kaydedilir.  
-- Veritabanı yedekleme, geri yükleme, tablo ve şema tanımları içerir.  
-- Metin editörleri ve veri tabanı IDE’leri ile açılabilir.
+* `SELECT`: Veri çekmek için
+* `INSERT`: Yeni kayıt eklemek için
+* `UPDATE`: Veri güncellemek için
+* `DELETE`: Veri silmek için
+
+### Örnek:
+
+```sql
+SELECT name, age FROM users WHERE age > 30;
+```
 
 ---
 
 ## CSV (Comma-Separated Values)
 
-- Veriler **virgüllerle ayrılmış satırlar** halinde saklanır.  
-- Excel, veritabanı ve analiz araçlarında yaygın olarak kullanılır.
+CSV, verilerin virgülle ayrılarak tutulduğu sade bir dosya formatıdır. Excel veya veri bilimi projelerinde çok kullanılır.
 
-**Alternatif ayırıcılar:** `;`, `\t`, `|`, `:` gibi karakterler
+### Özellikleri:
 
+- Kolay okunur ve oluşturulur.
+- Her satır bir kayıt, her hücre bir sütundur.
+- Dosya uzantısı `.csv`’dir.
+- Alternatif ayırıcılar: `;` `\t` `|` `:` 
+
+### Örnek:
+
+```csv
+isim,soyisim,yaş
+Cansın,Memiş,23
+Arden,Hamza,9
+```
 ---
 
 ## LOG Dosyaları
 
-- Uygulama, sistem veya ağ olaylarını kayıt altına alan **günlük dosyalarıdır**.  
-- Metin tabanlıdır ve genellikle şu formatta tutulur:  
-  `Tarih - Saat - Olay Türü - Açıklama`
+LOG dosyaları, uygulamaların, sistemlerin veya ağların çalışma sürecinde oluşturduğu zaman damgalı günlük kayıtlarıdır. Bu dosyalar, uygulama, sistem veya ağ olaylarını kayıt altına alan metin tabanlı günlük dosyalarıdır ve genellikle şu formatta tutulur: Tarih - Saat - Olay Türü - Açıklama.
 
-**Kullanım Alanları:**
+### Kullanım Alanları ve Amaçları:
 
-- Hata izleme (error logs)  
-- Uygulama izleme  
-- Web sunucu kayıtları  
-- Güvenlik olayları
+- **Hata Ayıklama (Debug) ve İzleme (Error Logs):** Uygulamalardaki hataları tespit etmek ve gidermek için kullanılır.
+- **İzleme ve Uygulama İzleme:** Sistemlerin ve uygulamaların performansını ve davranışlarını takip etmek için kullanılır.
+- **Denetim:** Sistemdeki olayların geçmişini inceleyerek güvenlik ve uyumluluk gereksinimlerini karşılamak için kullanılır.
+- **Güvenlik Kontrolleri ve Güvenlik Olayları:** Yetkisiz erişim girişimleri veya diğer güvenlik ihlalleri gibi olayları kaydetmek için kullanılır.
+- **Web Sunucu Kayıtları:** Web sunucularına yapılan istekleri ve sunucu yanıtlarını kaydetmek için kullanılır.
 
+### Örnek:
+```log
+[2025-04-09 10:32:45] INFO: Sunucu başlatıldı.
+[2025-04-09 10:35:12] ERROR: Veritabanı bağlantısı başarısız.
+```
 ---
 
 # 4. API (Application Programming Interface)
@@ -637,6 +684,13 @@ Tanımlar şu iki biçimde yer alabilir:
 - Düzenli ifade (regex) ile özel kısıtlamalar
 
 > XSD tanımı da XML dosyası içinde veya ayrı bir `.xsd` dosyasında yapılabilir.
+
+| Özellik      | DTD                               | XSD                                  |
+|--------------|-----------------------------------|--------------------------------------|
+| Dil yapısı   | SGML                              | XML                                  |
+| Veri tipi    | Sınırlı                           | Zengin (string, int, date...)         |
+| Namespace    | Desteklemez                       | Destekler                            |
+| Esneklik     | Az                                | Fazla                                |
 
 ---
 
